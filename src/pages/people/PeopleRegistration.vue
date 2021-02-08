@@ -1,13 +1,11 @@
 <template>
-  <div></div>
+  REGISTER
 </template>
 
 <script>
 export default {
-  name: "PeopleRegistration"
-}
+  name: "PeopleRegistration",
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

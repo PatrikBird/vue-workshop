@@ -1,13 +1,11 @@
 <template>
-  <div></div>
+  CONTACT ME
 </template>
 
 <script>
 export default {
-name: "ContactPeople"
-}
+  name: "ContactPeople",
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
