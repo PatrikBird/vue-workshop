@@ -7,8 +7,10 @@ Intro to Vue.js
 ### Vue vs React vs Angular
 
 ## Local Dev Env & Github Repo
+### Vue CLI
 ### IDEs & Plugins
 ### Package Manager
+### Pull & Install
 
 ## Basics and Core Concepts
 ### Interpolation and Data Binding
