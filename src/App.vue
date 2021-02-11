@@ -3,13 +3,8 @@
   <p>The <a v-bind:href="vueLink">Vue.js docs</a> are great.</p>
   <button v-on:click.alt="increment">Increment</button>
   <p>{{ counter }}</p>
-  <input
-    type="text"
-    v-on:input="setProductName"
-    v-on:keyup.enter="SetConfirmedProductName"
-    v-on:blur="SetConfirmedProductName"
-  />
-  <p>{{ confirmedProductName }}</p>
+  <input type="text" v-model="productName" />
+  <button v-on:click="resetInput">Reset</button>
   <form v-on:submit.prevent="submitForm">
     <input type="text" />
     <button>Sign Up</button>
@@ -31,14 +26,11 @@ export default {
     increment() {
       this.counter++;
     },
-    setProductName(event) {
-      this.productName = event.target.value;
-    },
     submitForm() {
       alert("submitted");
     },
-    SetConfirmedProductName() {
-      this.confirmedProductName = this.productName;
+    resetInput() {
+      this.productName = "";
     },
   },
 };
