@@ -1,54 +1,55 @@
 <template>
-  <p>{{ productName }}</p>
-  <p>The <a v-bind:href="vueLink">Vue.js docs</a> are great.</p>
-  <button v-on:click.alt="increment">Increment</button>
-  <p>{{ counter }}</p>
-  <label><input type="text" v-model="productName"/></label>
-  <button v-on:click="resetInput">Reset</button>
-  <form v-on:submit.prevent="submitForm">
-    <label><input type="text"/></label>
-    <button>Sign Up</button>
-  </form>
-  <!--  <p>Some Name: {{ productName + " " + "XL5" }}</p>-->
-  <p>Some Name {{ someName }}</p>
+  <header>
+    <h1>Vue Dynamic Styling</h1>
+  </header>
+  <section id="styling">
+    <div class="demo"></div>
+    <div class="demo"></div>
+    <div class="demo"></div>
+  </section>
 </template>
 
 <script>
 export default {
   name: "App",
-  data() {
-    return {
-      productName: "prtg",
-      confirmedProductName: "",
-      vueLink: "https://v3.vuejs.org/guide/introduction.html",
-      counter: null,
-    };
-  },
-  methods: {
-    increment() {
-      this.counter++;
-    },
-    submitForm() {
-      alert("submitted");
-    },
-    resetInput() {
-      this.productName = "";
-    },
-  },
-  computed: {
-    someName() {
-      return this.productName + " " + "XL5";
-    },
-  },
-  watch: {
-    counter(value) {
-      if (value > 4) {
-        const that = this; // arrow function to the rescue
-        setTimeout(function() {
-          that.counter = 0;
-        }, 2000);
-      }
-    },
-  },
 };
 </script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Jost', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 3rem;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #4fc08d;
+  color: white;
+  text-align: center;
+}
+
+#styling {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 3rem;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.demo {
+  width: calc(100% - 32px);
+  height: 100px;
+  margin: 16px;
+  border: 2px dashed #ccc;
+}
+</style>
