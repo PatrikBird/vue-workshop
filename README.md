@@ -34,7 +34,7 @@ Intro to Vue.js
 
 ## Conditional Rendering (while developing app)
 ### v-if
-### v-show / v-cloak
+### v-show / v-cloak (cut out)
 ### v-for
 
 ## Vue: Behind the Scenes
@@ -46,8 +46,8 @@ Intro to Vue.js
 ### Component Communication
 #### Props: Parent => Child
 #### Custom Events: Child => Parent
-### A Potential Problem
-#### Provide and Inject
+### A Potential Problem (maybe cut out)
+#### Provide and Inject (maybe cut out)
 ### Slots
 
 ## Forms (maybe cut out)
