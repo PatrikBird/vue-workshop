@@ -5,11 +5,19 @@
   <section id="styling">
     <div
       class="demo"
-      :style="{ borderColor: boxASelected ? 'red' : '#ccc' }"
+      :class="{ active: boxASelected }"
       @click="boxSelected('A')"
     ></div>
-    <div class="demo" @click="boxSelected('B')"></div>
-    <div class="demo" @click="boxSelected('C')"></div>
+    <div
+      class="demo"
+      :class="{ active: boxBSelected }"
+      @click="boxSelected('B')"
+    ></div>
+    <div
+      class="demo"
+      :class="{ active: boxCSelected }"
+      @click="boxSelected('C')"
+    ></div>
   </section>
 </template>
 
@@ -26,11 +34,11 @@ export default {
   methods: {
     boxSelected(box) {
       if (box === "A") {
-        this.boxASelected = true;
+        this.boxASelected = !this.boxASelected;
       } else if (box === "B") {
-        this.boxBSelected = true;
+        this.boxBSelected = !this.boxBSelected;
       } else if (box === "C") {
-        this.boxCSelected = true;
+        this.boxCSelected = !this.boxCSelected;
       }
     },
   },
@@ -38,6 +46,11 @@ export default {
 </script>
 
 <style>
+.active {
+  border-color: red;
+  background-color: salmon;
+}
+
 * {
   box-sizing: border-box;
 }
