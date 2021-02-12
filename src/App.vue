@@ -3,15 +3,37 @@
     <h1>Vue Dynamic Styling</h1>
   </header>
   <section id="styling">
-    <div class="demo"></div>
-    <div class="demo"></div>
-    <div class="demo"></div>
+    <div
+      class="demo"
+      :style="{ borderColor: boxASelected ? 'red' : '#ccc' }"
+      @click="boxSelected('A')"
+    ></div>
+    <div class="demo" @click="boxSelected('B')"></div>
+    <div class="demo" @click="boxSelected('C')"></div>
   </section>
 </template>
 
 <script>
 export default {
   name: "App",
+  data() {
+    return {
+      boxASelected: false,
+      boxBSelected: false,
+      boxCSelected: false,
+    };
+  },
+  methods: {
+    boxSelected(box) {
+      if (box === "A") {
+        this.boxASelected = true;
+      } else if (box === "B") {
+        this.boxBSelected = true;
+      } else if (box === "C") {
+        this.boxCSelected = true;
+      }
+    },
+  },
 };
 </script>
 
@@ -21,7 +43,7 @@ export default {
 }
 
 html {
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", sans-serif;
 }
 
 body {
