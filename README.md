@@ -12,6 +12,15 @@ Intro to Vue.js
 ### Package Manager
 ### Pull & Install
 
+## Router
+### Register & Render Routes
+### Navigate with router-link
+### Programmatic Navigation
+### Dynamic Paths
+### Redirecting & Catch-all Route
+### Nested Routes
+### Navigation Guards (cut out)
+
 ## Basics and Core Concepts
 ### Interpolation and Data Binding
 ### Events and Methods
@@ -23,7 +32,7 @@ Intro to Vue.js
 ### Methods vs Computed Properties vs Watchers
 ### Dynamic Styles
 
-## Conditional Rendering
+## Conditional Rendering (while developing app)
 ### v-if
 ### v-show / v-cloak
 ### v-for
@@ -36,7 +45,7 @@ Intro to Vue.js
 ## Components
 ### Component Communication
 #### Props: Parent => Child
-#### Events: Child => Parent
+#### Custom Events: Child => Parent
 ### A Potential Problem
 #### Provide and Inject
 ### Slots
@@ -46,16 +55,7 @@ Intro to Vue.js
 ### Validation and Conditional Error Messages
 ### Checkboxes / Radio Buttons
 
-## Router (maybe shorten)
-### Register & Render Routes
-### Navigate with router-link
-### Programmatic Navigation
-### Dynamic Paths
-### Redirecting & Catch-all Route
-### Nested Routes
-### Navigation Guards
-
-## Vuex
+## Vuex (last chapter)
 ### Creating and Using the Store
 ### State
 ### Mutations
@@ -65,8 +65,8 @@ Intro to Vue.js
 ### Organize Code with Modules
 ### Namespacing
 
-## What' next?
-### Authentication
+## What's next?
 ### Animations & Transitions
+### Authentication & Authorization
+### TypeScript
 ### Composition API
-
