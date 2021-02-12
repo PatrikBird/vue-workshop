@@ -5,7 +5,7 @@
   <section id="styling">
     <div
       class="demo"
-      :class="{ active: boxASelected }"
+      :class="boxAClasses"
       @click="boxSelected('A')"
     ></div>
     <div
@@ -24,6 +24,11 @@
 <script>
 export default {
   name: "App",
+  computed: {
+    boxAClasses() {
+      return { active: this.boxASelected }
+    }
+  },
   data() {
     return {
       boxASelected: false,
