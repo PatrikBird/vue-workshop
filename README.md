@@ -25,7 +25,6 @@ Intro to Vue.js
 
 ## Conditional Rendering (while developing app)
 ### v-if
-### v-show / v-cloak (cut out)
 ### v-for
 
 ## Vue: Behind the Scenes
@@ -40,14 +39,11 @@ Intro to Vue.js
 ### Dynamic Paths
 ### Redirecting & Catch-all Route
 ### Nested Routes
-### Navigation Guards (cut out)
 
 ## Components
 ### Component Communication
 #### Props: Parent => Child
 #### Custom Events: Child => Parent
-### A Potential Problem (maybe cut out)
-#### Provide and Inject (maybe cut out)
 ### Slots
 
 ## Forms (maybe cut out)
@@ -55,7 +51,7 @@ Intro to Vue.js
 ### Validation and Conditional Error Messages
 ### Checkboxes / Radio Buttons
 
-## Vuex (last chapter)
+## Vuex
 ### Creating and Using the Store
 ### State
 ### Mutations
