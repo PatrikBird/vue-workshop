@@ -1,19 +1,21 @@
 <template>
-  <p>{{ productName }}</p>
-  <p>The <a v-bind:href="vueLink">Vue.js docs</a> are great.</p>
-  <button v-on:click.alt="increment">Increment</button>
-  <p>{{ counter }}</p>
-  <input
-    type="text"
-    v-on:input="setProductName"
-    v-on:keyup.enter="SetConfirmedProductName"
-    v-on:blur="SetConfirmedProductName"
-  />
-  <p>{{ confirmedProductName }}</p>
-  <form v-on:submit.prevent="submitForm">
-    <input type="text" />
-    <button>Sign Up</button>
-  </form>
+  <section id="events">
+    <p>The <a v-bind:href="vueLink">Vue.js docs</a> are great.</p>
+    <button v-on:click.left="increment">Increment</button>
+    <p>Counter: {{ counter }}</p>
+    <p>Product Name: {{ productName }}</p>
+    <input
+      type="text"
+      v-on:input="setProductName"
+      v-on:keyup.enter="SetConfirmedProductName"
+      v-on:blur="SetConfirmedProductName"
+    />
+    <p>Confirmed: {{ confirmedProductName }}</p>
+    <form v-on:submit.prevent="submitForm">
+      <input type="text" />
+      <button>Sign Up</button>
+    </form>
+  </section>
 </template>
 
 <script>
