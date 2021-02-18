@@ -12,15 +12,6 @@ Intro to Vue.js
 ### Package Manager
 ### Pull & Install
 
-## Router
-### Register & Render Routes
-### Navigate with router-link
-### Programmatic Navigation
-### Dynamic Paths
-### Redirecting & Catch-all Route
-### Nested Routes
-### Navigation Guards (cut out)
-
 ## Basics and Core Concepts
 ### Interpolation and Data Binding
 ### Events and Methods
@@ -41,6 +32,15 @@ Intro to Vue.js
 ### Reactivity
 ### How Vue Updates the DOM
 ### Vue App Lifecycle
+
+## Router
+### Register & Render Routes
+### Navigate with router-link
+### Programmatic Navigation
+### Dynamic Paths
+### Redirecting & Catch-all Route
+### Nested Routes
+### Navigation Guards (cut out)
 
 ## Components
 ### Component Communication
