@@ -4,13 +4,14 @@ Intro to Vue.js
 # Table of Contents
 
 ## What and Why?
-### Vue vs React vs Angular
+### Vue, React, Angular
 
-## Local Dev Env & Github Repo
-### Vue CLI
-### IDEs & Plugins
-### Package Manager
-### Pull & Install
+## About this Workshop
+### Set up variations
+#### IDEs & Plugins
+#### Package Manager
+### GitHub repo
+### In- and Excludes
 
 ## Basics and Core Concepts
 ### Interpolation and Data Binding
