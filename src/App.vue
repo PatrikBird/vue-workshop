@@ -1,6 +1,9 @@
 <template>
-  <p>{{ productName }}</p>
-  <p>The <a v-bind:href="vueLink">Vue.js docs</a> are great.</p>
+  <section id="events">
+    <h2>Events in Action</h2>
+    <p>{{ productName }}</p>
+    <p>The <a v-bind:href="vueLink">Vue.js docs</a> are great.</p>
+  </section>
 </template>
 
 <script>
