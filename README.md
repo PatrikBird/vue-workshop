@@ -1,8 +1,4 @@
-# Vue Intro Workshop
-Intro to Vue.js
-
-# Table of Contents
-
+# Vue Basics Workshop
 ## What and Why?
 ### Vue, React, Angular
 
