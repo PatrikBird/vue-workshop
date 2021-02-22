@@ -63,3 +63,6 @@
 ### Authentication & Authorization
 ### TypeScript
 ### Composition API
+### Frameworks
+#### Nuxt.js
+#### Vuetify
