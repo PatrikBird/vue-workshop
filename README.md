@@ -1,5 +1,5 @@
 # Vue Basics Workshop
-## What and Why?
+## What and Why js Framework?
 ### Vue, React, Angular
 
 ## About this Workshop
@@ -7,7 +7,7 @@
 #### IDEs & Plugins
 #### Package Manager
 ### GitHub repo
-### In- and Excludes
+### What's in this Workshop?
 
 ## Basics and Core Concepts
 ### Interpolation and Data Binding
