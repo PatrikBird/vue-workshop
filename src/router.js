@@ -12,13 +12,13 @@ const router = createRouter({
     { path: "/", redirect: "/people" },
     { path: "/people", component: PeopleList },
     {
-      path: "/people/:id",
+      path: "/people/:id", // dynamic path
       component: PeopleDetails,
       children: [{ path: "contact", component: ContactPeople }], // nested route
     },
     { path: "/register", component: PeopleRegistration },
     { path: "/requests", component: RequestsReceived },
-    { path: "/notFound(.*)", component: NotFound },
+    { path: "/notFound(.*)", component: NotFound }, // route not found behaviour
   ],
 });
 
