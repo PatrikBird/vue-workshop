@@ -6,7 +6,7 @@
     <div class="controls">
       <router-link to="/register">Register</router-link>
     </div>
-    <ul v-if="!hasPeople">
+    <ul v-if="hasPeople">
       <li v-for="p in filteredPeople" :key="p.id">
         {{ p.firstName }}
       </li>
