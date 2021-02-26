@@ -3,28 +3,33 @@
     FILTER
   </section>
   <section>
-    <div class="controls">
-      <router-link to="/register">Register</router-link>
-    </div>
-    <ul v-if="hasPeople">
-      <people-item
-        v-for="p in filteredPeople"
-        :key="p.id"
-        :id="p.id"
-        :first-name="p.firstName"
-        :last-name="p.lastName"
-        :food="p.food"
-      ></people-item>
-    </ul>
-    <h3 v-else>No one found :(</h3>
+    <base-card>
+      <div class="controls">
+        <base-button mode="outline">Refresh</base-button>
+        <base-button link to="/register">Register</base-button>
+      </div>
+      <ul v-if="hasPeople">
+        <people-item
+          v-for="p in filteredPeople"
+          :key="p.id"
+          :id="p.id"
+          :first-name="p.firstName"
+          :last-name="p.lastName"
+          :food="p.food"
+        ></people-item>
+      </ul>
+      <h3 v-else>No one found :(</h3>
+    </base-card>
   </section>
 </template>
 
 <script>
 import PeopleItem from "@/components/people/PeopleItem";
+import BaseCard from "@/components/ui/BaseCard";
+import BaseButton from "@/components/ui/BaseButton";
 export default {
   name: "PeopleList",
-  components: { PeopleItem },
+  components: {BaseButton, BaseCard, PeopleItem },
   computed: {
     filteredPeople() {
       return this.$store.getters["people/people"];

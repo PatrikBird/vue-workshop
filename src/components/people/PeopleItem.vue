@@ -3,30 +3,40 @@
     <h3>{{ fullName }}</h3>
     <h4>Some Data n/a</h4>
     <div>
-      <span v-for="kind in food" :key="kind">{{ kind }}</span>
+      <BaseBadge
+        v-for="kind in food"
+        :key="kind"
+        :type="kind"
+        :title="kind"
+      ></BaseBadge>
     </div>
     <div class="actions">
-      <router-link :to="peopleContactLink">Contact</router-link>
-      <router-link :to="peopleDetailsLink">View Details</router-link>
+      <base-button mode="outline" link :to="peopleContactLink"
+        >Contact</base-button
+      >
+      <base-button link :to="peopleDetailsLink">View Details</base-button>
     </div>
   </li>
 </template>
 
 <script>
+import BaseButton from "@/components/ui/BaseButton";
+import BaseBadge from "@/components/ui/BaseBadge";
 export default {
   name: "PeopleItem",
+  components: { BaseBadge, BaseButton },
   props: ["id", "firstName", "lastName", "food"],
   computed: {
     fullName() {
       return this.firstName + " " + this.lastName;
     },
     peopleContactLink() {
-      return this.$route.path + "/" + this.id + "/contact" // /people/p1/contact
+      return this.$route.path + "/" + this.id + "/contact"; // /people/p1/contact
     },
     peopleDetailsLink() {
       return this.$route.path + "/" + this.id; // /people/p1
-    }
-  }
+    },
+  },
 };
 </script>
 
