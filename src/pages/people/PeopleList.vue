@@ -1,6 +1,6 @@
 <template>
   <section>
-    FILTER
+    <people-filter @change-filter="setFilters"></people-filter>
   </section>
   <section>
     <base-card>
@@ -27,15 +27,45 @@
 import PeopleItem from "@/components/people/PeopleItem";
 import BaseCard from "@/components/ui/BaseCard";
 import BaseButton from "@/components/ui/BaseButton";
+import PeopleFilter from "@/components/people/PeopleFilter";
 export default {
   name: "PeopleList",
-  components: {BaseButton, BaseCard, PeopleItem },
+  components: { PeopleFilter, BaseButton, BaseCard, PeopleItem },
+  data() {
+    return {
+      activeFilters: {
+        vegan: true,
+        vegetarian: true,
+        bread: true,
+        milk: true,
+        sausages: true,
+      },
+    };
+  },
   computed: {
     filteredPeople() {
-      return this.$store.getters["people/people"];
+      const people = this.$store.getters["people/people"];
+      return people.filter(people => {
+        if (this.activeFilters.vegan && people.food.includes("vegan"))
+          return true;
+        if (this.activeFilters.vegetarian && people.food.includes("vegetarian"))
+          return true;
+        if (this.activeFilters.bread && people.food.includes("bread"))
+          return true;
+        if (this.activeFilters.milk && people.food.includes("milk"))
+          return true;
+        if (this.activeFilters.sausages && people.food.includes("sausages"))
+          return true;
+        return false;
+      });
     },
     hasPeople() {
       return this.$store.getters["people/hasPeople"];
+    },
+  },
+  methods: {
+    setFilters(updatedFilters) {
+      this.activeFilters = updatedFilters;
     },
   },
 };
