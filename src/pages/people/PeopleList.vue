@@ -6,7 +6,7 @@
     <base-card>
       <div class="controls">
         <base-button mode="outline">Refresh</base-button>
-        <base-button link to="/register">Register</base-button>
+        <base-button v-if="!isPeople" link to="/register">Register</base-button>
       </div>
       <ul v-if="hasPeople">
         <people-item
@@ -61,6 +61,9 @@ export default {
     },
     hasPeople() {
       return this.$store.getters["people/hasPeople"];
+    },
+    isPeople() {
+      return this.$store.getters["people/isPeople"];
     },
   },
   methods: {
