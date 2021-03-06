@@ -1,21 +1,24 @@
 <template>
   <form @submit.prevent="submitForm">
-    <div class="form-control">
+    <div :class="{ invalid: !firstName.isValid }" class="form-control">
       <label for="firstname">Firstname</label>
-      <input type="text" id="firstname" v-model.trim="firstName" />
+      <input type="text" id="firstname" v-model.trim="firstName.val" />
+      <p v-if="!firstName.isValid">Firstname must not be empty</p>
     </div>
-    <div class="form-control">
+    <div :class="{ invalid: !lastName.isValid }" class="form-control">
       <label for="lastname">Lastname</label>
-      <input type="text" id="lastname" v-model.trim="lastName" />
+      <input type="text" id="lastname" v-model.trim="lastName.val" />
+      <p v-if="!lastName.isValid">Lastname must not be empty</p>
     </div>
-    <div class="form-control">
+    <div :class="{ invalid: !desc.isValid }" class="form-control">
       <label for="desc">Description</label>
-      <textarea id="desc" rows="5" v-model.trim="desc"></textarea>
+      <textarea id="desc" rows="5" v-model.trim="desc.val"></textarea>
+      <p v-if="!desc.isValid">Description must not be empty</p>
     </div>
-    <div class="form-control">
+    <div :class="{ invalid: !food.isValid }" class="form-control">
       <h3>Kind of Foods</h3>
       <div>
-        <input type="checkbox" id="vegan" value="vegan" v-model="food" />
+        <input type="checkbox" id="vegan" value="vegan" v-model="food.val" />
         <label for="vegan">Vegan</label>
       </div>
       <div>
@@ -28,18 +31,25 @@
         <label for="vegetarian">Vegetarian</label>
       </div>
       <div>
-        <input type="checkbox" id="bread" value="bread" v-model="food" />
+        <input type="checkbox" id="bread" value="bread" v-model="food.val" />
         <label for="bread">Bread</label>
       </div>
       <div>
-        <input type="checkbox" id="milk" value="milk" v-model="food" />
+        <input type="checkbox" id="milk" value="milk" v-model="food.val" />
         <label for="milk">Milk</label>
       </div>
       <div>
-        <input type="checkbox" id="sausages" value="sausages" v-model="food" />
+        <input
+          type="checkbox"
+          id="sausages"
+          value="sausages"
+          v-model="food.val"
+        />
         <label for="sausages">Sausages</label>
       </div>
+      <p v-if="!food.isValid">At least one kind of food must be selected.</p>
     </div>
+    <p v-if="!formIsValid">Please fix errors above and try again :)</p>
     <base-button>Register</base-button>
   </form>
 </template>
@@ -52,14 +62,52 @@ export default {
   components: { BaseButton },
   data() {
     return {
-      firstName: "",
-      lastName: "",
-      desc: "",
-      food: [],
+      firstName: {
+        val: "",
+        isValid: true,
+      },
+      lastName: {
+        val: "",
+        isValid: true,
+      },
+      desc: {
+        val: "",
+        isValid: true,
+      },
+      food: {
+        val: [],
+        isValid: true,
+      },
+      formIsValid: true,
     };
   },
   methods: {
+    validateForm() {
+      this.formIsValid = true;
+      if (this.firstName.val === "") {
+        this.firstName.isValid = false;
+        this.formIsValid = false;
+      }
+      if (this.lastName.val === "") {
+        this.lastName.isValid = false;
+        this.formIsValid = false;
+      }
+      if (this.desc.val === "") {
+        this.desc.isValid = false;
+        this.formIsValid = false;
+      }
+      if (this.food.val.length === 0) {
+        this.food.isValid = false;
+        this.formIsValid = false;
+      }
+    },
     submitForm() {
+      this.validateForm();
+
+      if (!this.formIsValid) {
+        return;
+      }
+
       const formData = {
         first: this.firstName,
         last: this.lastName,
