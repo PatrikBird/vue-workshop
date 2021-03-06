@@ -15,7 +15,7 @@
     <div class="form-control">
       <h3>Kind of Foods</h3>
       <div>
-        <input type="checkbox" id="vegan" value="vegan" v-model="foods" />
+        <input type="checkbox" id="vegan" value="vegan" v-model="food" />
         <label for="vegan">Vegan</label>
       </div>
       <div>
@@ -23,20 +23,20 @@
           type="checkbox"
           id="vegetarian"
           value="vegetarian"
-          v-model="foods"
+          v-model="food"
         />
         <label for="vegetarian">Vegetarian</label>
       </div>
       <div>
-        <input type="checkbox" id="bread" value="bread" v-model="foods" />
+        <input type="checkbox" id="bread" value="bread" v-model="food" />
         <label for="bread">Bread</label>
       </div>
       <div>
-        <input type="checkbox" id="milk" value="milk" v-model="foods" />
+        <input type="checkbox" id="milk" value="milk" v-model="food" />
         <label for="milk">Milk</label>
       </div>
       <div>
-        <input type="checkbox" id="sausages" value="sausages" v-model="foods" />
+        <input type="checkbox" id="sausages" value="sausages" v-model="food" />
         <label for="sausages">Sausages</label>
       </div>
     </div>
@@ -54,16 +54,16 @@ export default {
       firstName: "",
       lastName: "",
       desc: "",
-      foods: [],
+      food: [],
     };
   },
-  methods:{
+  methods: {
     submitForm() {
       const formData = {
         first: this.firstName,
         last: this.lastName,
         desc: this.desc,
-        foods: this.foods,
+        food: this.food,
       };
       console.log(formData);
     }
@@ -82,7 +82,7 @@ label {
   margin-bottom: 0.5rem;
 }
 
-input[type='checkbox'] + label {
+input[type="checkbox"] + label {
   font-weight: normal;
   display: inline;
   margin: 0 0 0 0.5rem;
@@ -103,13 +103,13 @@ textarea:focus {
   border-color: #3d008d;
 }
 
-input[type='checkbox'] {
+input[type="checkbox"] {
   display: inline;
   width: auto;
   border: none;
 }
 
-input[type='checkbox']:focus {
+input[type="checkbox"]:focus {
   outline: #3d008d solid 1px;
 }
 
