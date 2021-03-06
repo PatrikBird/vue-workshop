@@ -14,6 +14,7 @@ const router = createRouter({
     {
       path: "/people/:id",
       component: PeopleDetails,
+      props: true,
       children: [{ path: "contact", component: ContactPeople }], // nested route
     },
     { path: "/register", component: PeopleRegistration },
