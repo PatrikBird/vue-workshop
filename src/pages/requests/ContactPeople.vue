@@ -39,7 +39,12 @@ export default {
         return;
       }
 
-      // create message with vuex!
+      this.$store.dispatch("requests/contactPeople", {
+        email: this.email,
+        message: this.message,
+        peopleId: this.$route.params.id,
+      });
+      this.$router.replace("/people");
     },
   },
 };
