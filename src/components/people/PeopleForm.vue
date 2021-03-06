@@ -2,23 +2,44 @@
   <form @submit.prevent="submitForm">
     <div :class="{ invalid: !firstName.isValid }" class="form-control">
       <label for="firstname">Firstname</label>
-      <input type="text" id="firstname" v-model.trim="firstName.val" />
+      <input
+        type="text"
+        id="firstname"
+        v-model.trim="firstName.val"
+        @blur="clearValidity('firstName')"
+      />
       <p v-if="!firstName.isValid">Firstname must not be empty</p>
     </div>
     <div :class="{ invalid: !lastName.isValid }" class="form-control">
       <label for="lastname">Lastname</label>
-      <input type="text" id="lastname" v-model.trim="lastName.val" />
+      <input
+        type="text"
+        id="lastname"
+        v-model.trim="lastName.val"
+        @blur="clearValidity('lastName')"
+      />
       <p v-if="!lastName.isValid">Lastname must not be empty</p>
     </div>
     <div :class="{ invalid: !desc.isValid }" class="form-control">
       <label for="desc">Description</label>
-      <textarea id="desc" rows="5" v-model.trim="desc.val"></textarea>
+      <textarea
+        id="desc"
+        rows="5"
+        v-model.trim="desc.val"
+        @blur="clearValidity('desc')"
+      ></textarea>
       <p v-if="!desc.isValid">Description must not be empty</p>
     </div>
     <div :class="{ invalid: !food.isValid }" class="form-control">
       <h3>Kind of Foods</h3>
       <div>
-        <input type="checkbox" id="vegan" value="vegan" v-model="food.val" />
+        <input
+          type="checkbox"
+          id="vegan"
+          value="vegan"
+          v-model="food.val"
+          @blur="clearValidity('food')"
+        />
         <label for="vegan">Vegan</label>
       </div>
       <div>
@@ -27,15 +48,28 @@
           id="vegetarian"
           value="vegetarian"
           v-model="food"
+          @blur="clearValidity('food')"
         />
         <label for="vegetarian">Vegetarian</label>
       </div>
       <div>
-        <input type="checkbox" id="bread" value="bread" v-model="food.val" />
+        <input
+          type="checkbox"
+          id="bread"
+          value="bread"
+          v-model="food.val"
+          @blur="clearValidity('food')"
+        />
         <label for="bread">Bread</label>
       </div>
       <div>
-        <input type="checkbox" id="milk" value="milk" v-model="food.val" />
+        <input
+          type="checkbox"
+          id="milk"
+          value="milk"
+          v-model="food.val"
+          @blur="clearValidity('food')"
+        />
         <label for="milk">Milk</label>
       </div>
       <div>
@@ -44,6 +78,7 @@
           id="sausages"
           value="sausages"
           v-model="food.val"
+          @blur="clearValidity('food')"
         />
         <label for="sausages">Sausages</label>
       </div>
@@ -82,6 +117,9 @@ export default {
     };
   },
   methods: {
+    clearValidity(input) {
+      this[input].isValid = true;
+    },
     validateForm() {
       this.formIsValid = true;
       if (this.firstName.val === "") {
@@ -109,10 +147,10 @@ export default {
       }
 
       const formData = {
-        first: this.firstName,
-        last: this.lastName,
-        desc: this.desc,
-        food: this.food,
+        first: this.firstName.val,
+        last: this.lastName.val,
+        desc: this.desc.val,
+        food: this.food.val,
       };
       this.$emit("save-data", formData);
     },
