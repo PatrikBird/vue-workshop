@@ -65,4 +65,4 @@
 ### Composition API
 ### Frameworks
 #### Nuxt.js
-#### Vuetify
+#### CSS frameworks
