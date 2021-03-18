@@ -1,13 +1,28 @@
 export default {
-  registerPeople(context, data) {
+  async registerPeople(context, data) {
+    const userId = context.rootGetters.userId;
     const peopleData = {
-      id: context.rootGetters.userId,
       firstName: data.first,
       lastName: data.last,
       desc: data.desc,
       food: data.food,
     };
 
-    context.commit("registerPeople", peopleData);
+    const response = await fetch(
+      `https://vue-course-2bcef-default-rtdb.europe-west1.firebasedatabase.app/people/${userId}.json`,
+      {
+        method: "PUT",
+        body: JSON.stringify(peopleData),
+      }
+    );
+
+    if (!response.ok) {
+      // error...
+    }
+
+    context.commit("registerPeople", {
+      ...peopleData,
+      id: userId,
+    });
   },
 };
