@@ -59,9 +59,9 @@
 ### Namespacing
 
 ## What's next?
-### TypeScript
-### Composition API
-### Reusing Functionality
-### Animations & Transitions
 ### Authentication & Authorization
+### Reusing Functionality
+### Composition API
+### TypeScript
+### Animations & Transitions
 ### Frameworks worth mentioning
