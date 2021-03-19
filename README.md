@@ -61,6 +61,7 @@
 ## What's next?
 ### TypeScript
 ### Composition API
+### Reusing Functionality
 ### Animations & Transitions
 ### Authentication & Authorization
 ### Frameworks worth mentioning
