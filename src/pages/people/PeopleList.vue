@@ -1,4 +1,7 @@
 <template>
+  <base-dialog :show="!!error" title="An error occurred!" @close="handleError">
+    <p>{{ error }}</p>
+  </base-dialog>
   <section>
     <people-filter @change-filter="setFilters"></people-filter>
   </section>
@@ -6,7 +9,9 @@
     <base-card>
       <div class="controls">
         <base-button mode="outline" @click="loadPeople">Refresh</base-button>
-        <base-button v-if="!isPeople && !isLoading" link to="/register">Register</base-button>
+        <base-button v-if="!isPeople && !isLoading" link to="/register"
+          >Register</base-button
+        >
       </div>
       <div v-if="isLoading">
         <base-spinner></base-spinner>
@@ -32,12 +37,14 @@ import BaseCard from "@/components/ui/BaseCard";
 import BaseButton from "@/components/ui/BaseButton";
 import PeopleFilter from "@/components/people/PeopleFilter";
 import BaseSpinner from "@/components/ui/BaseSpinner";
+import BaseDialog from "@/components/ui/BaseDialog";
 export default {
   name: "PeopleList",
-  components: {BaseSpinner, PeopleFilter, BaseButton, BaseCard, PeopleItem },
+  components: {BaseDialog, BaseSpinner, PeopleFilter, BaseButton, BaseCard, PeopleItem },
   data() {
     return {
       isLoading: false,
+      error: null,
       activeFilters: {
         vegan: true,
         vegetarian: true,
@@ -80,8 +87,15 @@ export default {
     },
     async loadPeople() {
       this.isLoading = true;
-      await this.$store.dispatch('people/loadPeople');
+      try {
+        await this.$store.dispatch("people/loadPeople");
+      } catch (error) {
+        this.error = error.message || "Something went wrong!";
+      }
       this.isLoading = false;
+    },
+    handleError(){
+      this.error = null;
     }
   },
 };
