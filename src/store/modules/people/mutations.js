@@ -3,8 +3,6 @@ export default {
     state.people.push(payload);
   },
   setPeople(state, payload) {
-    console.log(state);
-    console.log(payload);
     state.people = payload;
   },
   setFetchTimestamp(state) {
