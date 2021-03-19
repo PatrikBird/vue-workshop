@@ -5,7 +5,7 @@
   <section>
     <base-card>
       <div class="controls">
-        <base-button mode="outline">Refresh</base-button>
+        <base-button mode="outline" @click="loadPeople">Refresh</base-button>
         <base-button v-if="!isPeople" link to="/register">Register</base-button>
       </div>
       <ul v-if="hasPeople">
@@ -67,9 +67,15 @@ export default {
     },
   },
   methods: {
+    created() {
+      this.loadPeople();
+    },
     setFilters(updatedFilters) {
       this.activeFilters = updatedFilters;
     },
+    loadPeople() {
+      this.$store.dispatch('people/loadPeople');
+    }
   },
 };
 </script>

@@ -25,4 +25,30 @@ export default {
       id: userId,
     });
   },
+  async loadPeople(context) {
+    const response = await fetch(
+      `https://vue-course-2bcef-default-rtdb.europe-west1.firebasedatabase.app/people.json`
+    );
+    const responseData = await response.json();
+
+    if (!response.ok) {
+      // ...
+    }
+
+    const peoples = [];
+
+    for (const key in responseData) {
+      const people = {
+        id: key,
+        firstName: responseData[key].firstName,
+        lastName: responseData[key].lastName,
+        desc: responseData[key].desc,
+        food: responseData[key].food,
+      };
+      peoples.push(people);
+    }
+    console.log(peoples);
+
+    context.commit("setPeople", peoples);
+  },
 };
