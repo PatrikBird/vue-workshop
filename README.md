@@ -59,10 +59,8 @@
 ### Namespacing
 
 ## What's next?
-### Animations & Transitions
-### Authentication & Authorization
 ### TypeScript
 ### Composition API
-### Frameworks
-#### Nuxt.js
-#### CSS frameworks
+### Animations & Transitions
+### Authentication & Authorization
+### Frameworks worth mentioning
