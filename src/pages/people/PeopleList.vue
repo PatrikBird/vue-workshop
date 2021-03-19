@@ -8,7 +8,9 @@
   <section>
     <base-card>
       <div class="controls">
-        <base-button mode="outline" @click="loadPeople">Refresh</base-button>
+        <base-button mode="outline" @click="loadPeople(true)"
+          >Refresh</base-button
+        >
         <base-button v-if="!isPeople && !isLoading" link to="/register"
           >Register</base-button
         >
@@ -40,7 +42,14 @@ import BaseSpinner from "@/components/ui/BaseSpinner";
 import BaseDialog from "@/components/ui/BaseDialog";
 export default {
   name: "PeopleList",
-  components: {BaseDialog, BaseSpinner, PeopleFilter, BaseButton, BaseCard, PeopleItem },
+  components: {
+    BaseDialog,
+    BaseSpinner,
+    PeopleFilter,
+    BaseButton,
+    BaseCard,
+    PeopleItem,
+  },
   data() {
     return {
       isLoading: false,
@@ -78,25 +87,27 @@ export default {
       return this.$store.getters["people/isPeople"];
     },
   },
+  created() {
+    this.loadPeople();
+  },
   methods: {
-    created() {
-      this.loadPeople();
-    },
     setFilters(updatedFilters) {
       this.activeFilters = updatedFilters;
     },
-    async loadPeople() {
+    async loadPeople(refresh = false) {
       this.isLoading = true;
       try {
-        await this.$store.dispatch("people/loadPeople");
+        await this.$store.dispatch("people/loadPeople", {
+          forceRefresh: refresh,
+        });
       } catch (error) {
         this.error = error.message || "Something went wrong!";
       }
       this.isLoading = false;
     },
-    handleError(){
+    handleError() {
       this.error = null;
-    }
+    },
   },
 };
 </script>

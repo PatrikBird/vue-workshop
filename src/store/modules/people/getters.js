@@ -10,4 +10,10 @@ export default {
     const userId = rootGetters.userId;
     return peoples.some(people => people.id === userId);
   },
+  shouldUpdate(state) {
+    const lastFetch = state.lastFetch;
+    if (!lastFetch) return true;
+    const currentTimestamp = new Date().getTime();
+    return (currentTimestamp - lastFetch) / 1000 > 60;
+  },
 };

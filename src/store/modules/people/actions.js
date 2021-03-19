@@ -25,7 +25,11 @@ export default {
       id: userId,
     });
   },
-  async loadPeople(context) {
+  async loadPeople(context, payload) {
+    if (!payload.forceRefresh && !context.getters.shouldUpdate) {
+      return;
+    }
+
     const response = await fetch(
       `https://vue-course-2bcef-default-rtdb.europe-west1.firebasedatabase.app/people.json`
     );
@@ -50,5 +54,6 @@ export default {
     }
 
     context.commit("setPeople", peoples);
+    context.commit("setFetchTimestamp");
   },
 };
