@@ -47,7 +47,6 @@ export default {
       };
       peoples.push(people);
     }
-    console.log(peoples);
 
     context.commit("setPeople", peoples);
   },

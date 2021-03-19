@@ -6,9 +6,12 @@
     <base-card>
       <div class="controls">
         <base-button mode="outline" @click="loadPeople">Refresh</base-button>
-        <base-button v-if="!isPeople" link to="/register">Register</base-button>
+        <base-button v-if="!isPeople && !isLoading" link to="/register">Register</base-button>
       </div>
-      <ul v-if="hasPeople">
+      <div v-if="isLoading">
+        <base-spinner></base-spinner>
+      </div>
+      <ul v-else-if="hasPeople">
         <people-item
           v-for="p in filteredPeople"
           :key="p.id"
@@ -28,11 +31,13 @@ import PeopleItem from "@/components/people/PeopleItem";
 import BaseCard from "@/components/ui/BaseCard";
 import BaseButton from "@/components/ui/BaseButton";
 import PeopleFilter from "@/components/people/PeopleFilter";
+import BaseSpinner from "@/components/ui/BaseSpinner";
 export default {
   name: "PeopleList",
-  components: { PeopleFilter, BaseButton, BaseCard, PeopleItem },
+  components: {BaseSpinner, PeopleFilter, BaseButton, BaseCard, PeopleItem },
   data() {
     return {
+      isLoading: false,
       activeFilters: {
         vegan: true,
         vegetarian: true,
@@ -60,7 +65,7 @@ export default {
       });
     },
     hasPeople() {
-      return this.$store.getters["people/hasPeople"];
+      return !this.isLoading && this.$store.getters["people/hasPeople"];
     },
     isPeople() {
       return this.$store.getters["people/isPeople"];
@@ -73,8 +78,10 @@ export default {
     setFilters(updatedFilters) {
       this.activeFilters = updatedFilters;
     },
-    loadPeople() {
-      this.$store.dispatch('people/loadPeople');
+    async loadPeople() {
+      this.isLoading = true;
+      await this.$store.dispatch('people/loadPeople');
+      this.isLoading = false;
     }
   },
 };
