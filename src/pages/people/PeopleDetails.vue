@@ -9,7 +9,7 @@
     <base-card>
       <header>
         <h2>Want to have it? Reach out now!</h2>
-        <base-button link :to="contactLink">Contact</base-button>
+        <base-button v-if="hideButtonOnContactRoute" link :to="contactLink">Contact</base-button>
       </header>
       <router-view></router-view>
     </base-card>
@@ -40,14 +40,17 @@ export default {
     fullName() {
       return this.selectedPeople.firstName + " " + this.selectedPeople.lastName;
     },
-    food(){
+    food() {
       return this.selectedPeople.food;
     },
-    desc(){
+    desc() {
       return this.selectedPeople.desc;
     },
     contactLink() {
-      return this.$route.path + "/" + this.id + "/contact";
+      return this.$route.path + "/contact";
+    },
+    hideButtonOnContactRoute() {
+      return this.$route.name !== "contact";
     },
   },
   created() {
