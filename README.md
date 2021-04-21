@@ -7,7 +7,7 @@
 #### IDEs & Plugins
 #### Package Manager
 ### GitHub repo
-### What's in this Workshop?
+### What are we going to do?
 
 ## Basics and Core Concepts
 ### Interpolation and Data Binding
@@ -24,11 +24,6 @@
 ### v-if
 ### v-for
 
-## Vue: Behind the Scenes
-### Reactivity
-### How Vue Updates the DOM
-### Vue App Lifecycle
-
 ## Router
 ### Register & Render Routes
 ### Navigate with router-link
@@ -43,11 +38,6 @@
 #### Custom Events: Child => Parent
 ### Slots
 
-## Forms (maybe cut out)
-### Using v-model
-### Validation and Conditional Error Messages
-### Checkboxes / Radio Buttons
-
 ## Vuex
 ### Creating and Using the Store
 ### State
@@ -57,6 +47,17 @@
 ### Using Mapper Helpers
 ### Organize Code with Modules
 ### Namespacing
+
+## Optional
+### Vue: Behind the Scenes
+#### Reactivity
+#### How Vue Updates the DOM
+#### Vue App Lifecycle
+
+### Forms
+#### Using v-model
+#### Validation and Conditional Error Messages
+#### Checkboxes / Radio Buttons
 
 ## What's next?
 ### Authentication & Authorization
